@@ -1,0 +1,125 @@
+body {
+    font-family: Arial;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  .title {
+    margin: 20px;
+    padding: 20px;
+    font-size: 30;
+  }
+
+  .mask {
+    position: absolute;
+    top: 180;
+    left: 564;
+    width: 320;
+    height: 150;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+
+
+  .container:hover .mask {
+    opacity: 0.6;
+  }
+    <!-- a semi-transparent color block as a overlay, with
+  the implication of protecting your privacy-->
+  <!--changing opacity from 0 to 0.6-->
+
+  .container:hover .content {
+    opacity: 0.5;}
+
+
+nav{
+          background-color: #c3cc99;
+            padding: 10px;
+            color: white;}
+
+nav ul {
+    color: black;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+   
+}
+
+.intro style {
+  margin: 20;
+  padding: 20;
+  font-size: 20;
+}
+
+
+.question {
+  background-image: url("question.png");
+  display: inline-block;
+  position: relative;
+  width: 1020px;
+  height: 300px;
+}
+
+@Keyframes questionmark {
+  0%{left: 0px; top: 0px;}
+  25% {left: 0px; top: 0px}
+  100%{background-image: url("question2.png");}
+
+}
+
+
+.question:hover {
+  animation-name: questionmark;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-direction: alternate;}
+<!-- when hover over the picture, it animates from the first picture
+to the second picture, serves as a connecting link betwen the preceding
+and the following, posing a question-->
+
+.id {
+    width: 614px;
+    height: 462;
+    position: relative;
+    border: 2px solid #ccc;
+  }
+
+  .picture {
+    width: 614px;
+    height: 462px;
+    position: absolute;
+    top: 1900px;
+    left: 0px;
+    background-image: url('information3.png');
+
+    animation-name: moveLeftRight;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+
+  @keyframes moveLeftRight {
+    0% { left:0px; }
+    50% { left: 1000; }
+    100% { left: 0; }}
+
+    .picture:hover {
+    background-image: url('information4.png');
+}
+
+<!-- an id moving left and right represents the personal
+information of people can be spread everywhere due to
+the Internet privacy issue, and the big red warning sign
+signifies how the lack of privacy can cause to serious 
+consequences.-->
+
+
+
