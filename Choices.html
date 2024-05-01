@@ -1,0 +1,164 @@
+<html>
+<head>
+    <title>The Animal in You</title>
+    <link rel="stylesheet" type="text/css" href="choices.css">
+    <style type="text/css">
+ @keyframes fadeIn {
+    from { opacity: 0;; }
+    to { opacity: 1; }
+}
+
+.meat, .school, .leasure, .meeting, .explore, .absent {
+    animation: fadeIn 1s ease-out;
+}
+
+img {
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+    </style>
+    <!-- the transition makes all the images have a smooth fade in when the user open/refresh the webpage-->
+    <!-- The scale  increases/decreases the size of an element according to the parameters given, in this case, the scale value of 1.1 allows the image to get larger when you hover over it -->
+</head>
+<center>
+<body>
+    <center><h1>What's your animal character?</h1></center>
+    <form>
+        
+        <br>
+        <br>
+<!-- six div blocks with 6 different questions. Each question has three options with a radio button-->
+        
+        <div class="meat">
+            <h3>1. What would you like for your steak?</h3>
+            <label for="option1"><img src="rare.png" width="300" height="300"> Rare</label>
+            <input id="option1" type="radio" name="question1">
+
+            <label for="option2"><img src="welldone.png" width="300" height="300"> Well done</label>
+            <input id="option2" type="radio" name="question1">
+
+            <label for="option3"><img src="nomeat.png" width="300" height="250"> No meat</label>
+            <input id="option3" type="radio" name="question1">
+        </div>
+
+        <br>
+
+        <div class="school">
+            <h3>2. What are you like at school?</h3>
+            <label for="option4"><img src="play.png" width="300" height="250"> Play</label>
+            <input id="option4" type="radio" name="question2">
+
+            <label for="option5"><img src="sleep.png" width="300" height="250"> Sleep</label>
+            <input id="option5" type="radio" name="question2">
+
+            <label for="option6"><img src="engage.png" width="300" height="200"> Engage</label>
+            <input id="option6" type="radio" name="question2">
+        </div>
+
+        <div class="leasure">
+            <h3>3. What do you prefer to do during your leisure time?</h3>
+            <label for="option7"><img src="hangout.png" width="300" height="230"> Hang out with friends</label>
+            <input id="option7" type="radio" name="question3">
+
+            <label for="option8"><img src="read.png" width="300" height="230"> Read</label>
+            <input id="option8" type="radio" name="question3">
+
+            <label for="option9"><img src="relax.png" width="300" height="230"> Simply relax</label>
+            <input id="option9" type="radio" name="question3">
+        </div>
+
+        <div class="meeting">
+            <h3>4. If the atmosphere at the meeting becomes tense, what would you do?</h3>
+            <label for="option10"><img src="light.png" width="300" height="230"> Lighten the mood</label>
+            <input id="option10" type="radio" name="question4">
+
+            <label for="option11"><img src="nothing.png" width="300" height="230"> Don't care</label>
+            <input id="option11" type="radio" name="question4">
+
+            <label for="option12"><img src="stress.png" width="300" height="230"> Feel stressful</label>
+            <input id="option12" type="radio" name="question4">
+        </div>
+
+        <div class="explore">
+            <h3>5. During camping, someone suggested exploring deep into the forest. What would you do?</h3>
+            <label for="option13"><img src="go.png" width="300" height="230"> Definitely go!</label>
+            <input id="option13" type="radio" name="question5">
+
+            <label for="option14"><img src="worry.png" width="300" height="230"> Worried about safety</label>
+            <input id="option14" type="radio" name="question5">
+
+            <label for="option15"><img src="quiet.png" width="300" height="230"> Follow others quietly</label>
+            <input id="option15" type="radio" name="question5">
+        </div>
+
+        <div class="absent">
+            <h3>6. What is the most likely reason you would not attend a dinner party a friend invited you to?</h3>
+            <label for="option16"><img src="busy.png" width="300" height="230"> Too busy</label>
+            <input id="option16" type="radio" name="question6">
+
+            <label for="option17"><img src="forget.png" width="300" height="230"> Forget about it</label>
+            <input id="option17" type="radio" name="question6">
+
+            <label for="option18"><img src="anxiety.png" width="300" height="230"> Social anxiety</label>
+            <input id="option18" type="radio" name="question6">
+            <br>
+            <br>
+        </div>
+<!-- The submit button. Also, the name that user enter here would show on the final result-->
+            <label for="username">Enter your name:</label>
+        <input id="username" type="text" name="student">
+        <input type="button" onclick="getName()" value="SUBMIT">
+        
+        <br>
+        
+
+    </form>
+    
+</body>
+</center>
+<script type="text/javascript">
+    function getName() {
+        var name = document.getElementById("username").value;
+        //claims a variable named "name: and assign the value with the id "username"
+        var points = 0;
+        //a starting point of 0 for calculating the total points
+
+        
+        if (document.getElementById("option1").checked) points += 10;
+        if (document.getElementById("option2").checked) points += 5;
+        if (document.getElementById("option3").checked) points += 1;
+        if (document.getElementById("option4").checked) points += 10;
+        if (document.getElementById("option5").checked) points += 5;
+        if (document.getElementById("option6").checked) points += 1;
+        if (document.getElementById("option7").checked) points += 10;
+        if (document.getElementById("option8").checked) points += 5;
+        if (document.getElementById("option9").checked) points += 1;
+        if (document.getElementById("option10").checked) points += 10;
+        if (document.getElementById("option11").checked) points += 5;
+        if (document.getElementById("option12").checked) points += 1;
+        if (document.getElementById("option13").checked) points += 10;
+        if (document.getElementById("option14").checked) points += 5;
+        if (document.getElementById("option15").checked) points += 1;
+        if (document.getElementById("option16").checked) points += 10;
+        if (document.getElementById("option17").checked) points += 5;
+        if (document.getElementById("option18").checked) points += 1;
+        //If choose option 1//4/7/10/13/16, then the total points would add a point of 10. If choose 2/5/8/11/14/17, then it would add 5 points. If chose option3/6/9/12/15/18, it would add 1 point
+
+        if (points > 30) {
+            alert(name + " ,your animal character is Brown bear!");
+        } 
+        //If the total score accumulated greater than 30, an alert box pops up, showing a message that includes the user's name and indicates that their animal character is a "Brown bear."
+        else if (points >= 10 && points <= 30) {
+            alert(name+" ,your animal character is Beluga Whale!");
+        } 
+        //If the total score is 10 or more but not more than 30, a different alert box appears, saying that the user's animal character is a "Beluga Whale."
+        else {
+            alert(name+" ,your animal character is British Shorthair cat!");
+        }
+        //For all other scores, which would be less than 10, the alert shows that the user's animal character corresponds to a "British Shorthair cat."
+    }
+</script>
+</html>

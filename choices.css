@@ -1,0 +1,52 @@
+body {
+    background-image: url("back.png");
+    background-attachment: fixed;
+    background-position: center;
+}
+//a background image that is fixed, do not move while the 
+user scrolls down the webpage
+h1 {
+    font-family: Tahoma;
+    color: #781111;
+}
+
+
+
+.meat h3 {
+    font-family: Tahoma;
+    color: #e35d5d;
+
+}
+
+.school h3 {
+    font-family: Tahoma;
+    color: #3f98eb;
+
+}
+
+.leasure h3 {
+    font-family: Tahoma;
+    color: #7a5de3;
+
+}
+
+.meeting h3 {
+    font-family: Tahoma;
+    color: #eda84e;
+
+}
+
+.explore h3 {
+    font-family: Tahoma;
+    color: #ed794e;
+
+}
+
+.absent h3 {
+    font-family: Tahoma;
+    color: #e04a7f;
+
+}
+
+//basic text style
+
