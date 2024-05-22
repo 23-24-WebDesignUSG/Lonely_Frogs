@@ -69,6 +69,15 @@
 
     </div>
 
+    <br>
+    <br>
+    <p>Citation</p>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">MDN Web Docs</a>
+    <br>
+    <a href="https://www.w3schools.com/html/">W3Schools</a>
+    <br>
+    <a href="https://www.allrecipes.com/recipes/">Allrecipes</a>
+
     <script type="text/javascript">
         const cookbook = {
             recipes: [],//Declares a cookbook object with an empty space recipes to store recipe data
@@ -105,7 +114,9 @@
             //Gets recipes of the selected category.
             const recipeList = document.getElementById('recipeList');
             //Gets the recipeList div.
-            
+            recipeList.innerHTML = '';
+            //Clears the current content of the recipeList div.
+
 
             if (recipes.length > 0) {
                 //Checks if there are recipes in the selected category
