@@ -1,0 +1,123 @@
+<html>
+<head>
+    
+    <title>Recipe Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Recipe Planner</h1>
+
+    <label for="recipeName">Add your recipe:</label>
+    <input type="text" id="recipeName" name="Recipe Name">
+
+    <label for="recipeCategory">Category:</label>
+    <select id="recipeCategory">
+        <option value="appetizer">Appetizer</option>
+        <option value="salad">Salad</option>
+        <option value="main">Main Dish</option>
+        <option value="dessert">Dessert</option>
+        <option value="vegetarian">Vegetarian & Vegan</option>
+        <option value="quick">Quick & Easy Meal</option>
+        <option value="international">International</option>
+    </select>
+
+    <label for="recipeRating">Rating (1-5):</label>
+    <input type="number" id="recipeRating" min="1" max="5">
+
+    <button onclick="addRecipe()">Add Recipe</button>
+
+    <h2>Recipe Categories</h2>
+    <button onclick="showRecipes('appetizer')">Appetizers</button>
+    <button onclick="showRecipes('salad')">Salads</button>
+    <button onclick="showRecipes('main')">Main Dishes</button>
+    <button onclick="showRecipes('dessert')">Desserts</button>
+    <button onclick="showRecipes('vegetarian')">Vegetarian & Vegan</button>
+    <button onclick="showRecipes('quick')">Quick & Easy Meals</button>
+    <button onclick="showRecipes('international')">International</button>
+
+    <h2>Recipes</h2>
+    <div id="recipeList">
+                <div id="savory">
+            <h3> Savory Party Bread/Rating:4</h3>
+            <p>It’s impossible to stop nibbling on warm pieces of this cheesy, oniony bread. The sliced loaf fans out for a fun presentation. It’s one of the best savory appetizers I’ve found. —Kay Daly, Raleigh, North Carolina</p>
+            <img src="ap1.jpeg" width="500" height="500">
+                 </div>
+                 <div id="Teriyaki">
+                        <h3>Teriyaki Pineapple Meatballs/ Rating:3.5</h3>
+                        <p>These teriyaki pineapple meatballs appetizer changed so many times because of my family’s suggestions that it eventually became a main course. I think the homemade sauce sets these meatballs apart. —Evette Nowicki, Oak Harbor, Washington</p>
+                        <img src="ap2.jpeg" width="500" height="500">
+                </div>
+                <div id="Italian salad">
+                        <h3>Italian Chopped Salad/Rating:4</h3>
+                        <p>This chopped salad is so flavorful that even salad skeptics will pile their plates with seconds! The key ingredients? A punchy dressing, pepperoncini, and TWO types of cheese.</p>
+                        <img src="salad2.jpeg" width="400" height="500">
+                </div>
+                <div id="pasta">
+                        <h3>Enchilada Pasta/Rating:4.5</h3>
+                        <p>Enchilada Pasta is hands down one of my all time favorite weeknight dinners. Cheesy, beefy pasta cooks right in the enchilada sauce to create a one pot meal that is not only packed full of flavor, but is quick and easy to make, with minimal clean up.
+                                <br>
+
+                        If you are looking for a dinner that everyone will love, and that you can get on the table in under 30 minutes, enchilada pasta won’t let you down.</p>
+                        <img src="main.png" width="400" height="500">
+                </div>
+                <div id="cake">
+                        <h3>Daffodil Cake/Rating:3.5</h3>
+                        <p>This is a great spring angel food-type of cake made with two flavors of batter alternated in a tube pan.</p>
+                        <img src="cake.png" width="500" height="400">
+                </div>
+
+
+    </div>
+
+    <script type="text/javascript">
+        const cookbook = {
+            recipes: [],//Declares a cookbook object with an empty space recipes to store recipe data
+
+            addRecipe(name, category, rating) {//Method to add a recipe to the "recipes" space.
+                this.recipes.push({ name, category, rating });//Add a new recipe object with name, category, and rating to the recipes array.
+                //the push funciton adds one or more elements to the end and returns the new length of the array "recipe".
+            },
+
+            getRecipesByCategory(category) {//To filter and return recipes by a specific category.
+                return this.recipes.filter(recipe => recipe.category === category);// Filter the "recipes" to include only recipes that match certain category.
+            }
+        };
+
+        function addRecipe() {
+            const name = document.getElementById('recipeName').value;
+            const category = document.getElementById('recipeCategory').value;
+            const rating = document.getElementById('recipeRating').value;
+
+            if (name && category && rating) {//Checks if all fields are filled; if so, adds the recipe, otherwise shows an alert
+                cookbook.addRecipe(name, category, rating);//Calls the addRecipe function to add the new recipe to the cookbook.
+                document.getElementById('recipeName').value = '';
+                //Clears the recipe name input field.
+                document.getElementById('recipeRating').value = '';
+                //Clears the recipe rating input field.
+                alert('Recipe added successfully!');
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        function showRecipes(category) {//Function to display recipes of a specific category.
+            const recipes = cookbook.getRecipesByCategory(category);
+            //Gets recipes of the selected category.
+            const recipeList = document.getElementById('recipeList');
+            //Gets the recipeList div.
+            
+
+            if (recipes.length > 0) {
+                //Checks if there are recipes in the selected category
+                recipes.forEach(recipe => {
+                    const recipeItem = document.createElement('div');//creates a div to display the recipe
+                    recipeItem.textContent = `Name: ${recipe.name}, Rating: ${recipe.rating}`;//Sets the text content of the div to the recipe's name and rating.
+                    recipeList.appendChild(recipeItem);//dds the new div to the recipeList div.
+                });
+            } else {
+                recipeList.textContent = 'No recipes found in this category.';
+            }
+        }
+    </script>
+</body>
+</html>
