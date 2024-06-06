@@ -1,0 +1,119 @@
+<html>
+<head>
+  <title>Web Design Portfolio</title>
+  <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+  <div class="container">
+    <!-- Left Sidebar -->
+    <div class="left-sidebar">
+      <select id="websiteSelector">
+        <option value="about">About Me</option>
+        <option value="call-to-action">Call to Action</option>
+        <option value="culture">Intangible Culture</option>
+        <option value="treasure-hunt">Treasure Hunt</option>
+        <option value="social-ethical">Internet Privacy</option>
+        <option value="buzzfeed-quiz">Buzzfeed Quiz</option>
+        <option value="cookbook">Cookbook</option>
+        
+      </select>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="img">
+        <h1>Web Design Portfolio</h1>
+      </div>
+      <h5>Melody Liu</h5>
+      <iframe id="embedFrame" src="About me.html" class="fade-in"></iframe>
+      <div id="contentDescription">
+        <p>About Me: This section contains the first Web Design project, a self-introduction web page coded by html combined with simple css style, showing the basic structure of an HTML file that we learned from class. The web page includes information about hobbies, favorite books and movies, alongside with an embedded video showcasing the movie.</p>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="right-sidebar">
+      <div id="questionnaire">
+        <h2>What's Your Favorite Website?</h2>
+        <select id="favoriteWebsiteSelector">
+          <option value="about">About Me</option>
+          <option value="call-to-action">Call to Action</option>
+          <option value="culture">Intangible Culture</option>
+          <option value="social-ethical">Internet Privacy</option>
+          <option value="buzzfeed-quiz">Buzzfeed Quiz</option>
+          <option value="cookbook">Cookbook</option>
+          <option value="treasure-hunt">Treasure Hunt</option>
+        </select>
+        <button onclick="displayFavoriteWebsite()">Go</button>
+      </div>
+      <div id="rate">
+        <h2>Rate the websites</h2>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const websites = {
+      'about': 'About Me.html',
+      'call-to-action': 'CallToAction.html',
+      'culture': 'intangible culture.html',
+      'social-ethical': 'InternetPrivacy.html',
+      'buzzfeed-quiz': 'Buzzfeed.html',
+      'cookbook': 'Cookbook.html',
+      'treasure-hunt': 'TreasureHunt.html'
+    };
+    //correspond the option values with the select names in html file
+
+    const descriptions = {
+      'about': 'About Me: This section contains the first Web Design project, a self-introduction web page coded by html combined with simple css style, showing the basic structure of an HTML file that we learned from class. The web page includes information about hobbies, favorite books and movies, alongside with an embedded video showcasing the movie.',
+
+      'call-to-action': 'This section contains a Web Page advocating for water pollution prevention. Compared to previous projects, this page incorporates navigation, internal and external links, and CSS specifically designed for hover effects. It also includes more use of div elements, as shown in the web page that different blocks of content are separated.',
+
+      'culture': 'The project of Intangible Culture Heritage is a group project made by Nora, Tiane, and Melody. In this project, we introduced the concept of Intangible Culture Heritage and designed an online exhibition of a series of valuable cultural artifacts. The web page includes a table that has several external hypertext links that link to more detailed files illustrating each of the artifact.',
+
+      'social-ethical': 'This project is a call for the significance of Internet Privacy. As one of the main issues in I.T that we discovered during the class, the Internet Privacy has been a pervasive concern in our digital age. The web page explores the definition, examples, and solutions of the Internet Privacy issue. As in terms of coding, this project used the Css transition and animation to add on effect of the web page, making it more interactive.',
+
+      'treasure-hunt': 'The Treasure Hunt project is an entertaining and interactive web page containing riddles, hints, and the answer. The use of div and hover combined together forming this special effect that users can experience the same as a treasure hunt online.',
+
+      'buzzfeed-quiz': 'This project of Buzzfeed Quiz is a recreation of an entertainment quiz found on Buzzfeed website.  In this highly interactive project, users can click on various options, leading to the generation of a final result that describes the soul animal corresponding to their personality traits. The project uses the javascript as a calculator of points earned by each option, eventually add up the total score and correspond to the range that each score represents.',
+
+      'cookbook': 'This web page allows for users to organize and explore a variety of recipes. The interactive web page allows the users to simply input the name of their own recipe, select its category, and rate it to add it in the virtual cookbook. More complex JavaScript code are included in this coding file, including the use of push function, filter function, and append child function, etc.'
+
+    };
+
+
+    // Get references to the dropdown selectors
+    const select = document.getElementById('websiteSelector');
+    const favoriteSelect = document.getElementById('favoriteWebsiteSelector');
+    const iframe = document.getElementById('embedFrame');
+    const contentDescription = document.getElementById('contentDescription');
+
+    // Add an event listener to the main dropdown to call updateIframe function when the selection changes
+    select.addEventListener('change', updateIframe);
+
+    //update content of the embedded frame based on selection
+    function updateIframe() {
+      iframe.classList.remove('fade-in');
+      iframe.classList.add('fade');
+
+      // A list for the end of the fade-out transition before updating the iframe source
+      iframe.addEventListener('transitionend', function handler() {
+        iframe.removeEventListener('transitionend', handler); // Remove the event listener
+        iframe.src = websites[select.value]; // update  iframe source
+        iframe.classList.remove('fade'); // remove fade class
+        iframe.classList.add('fade-in'); // Add fade-in class to start the fade-in effect
+         contentDescription.innerHTML = `<p>${descriptions[select.value]}</p>`; // update content description
+      });
+    }
+
+    // Function to display the favorite website corresponding to the button is that is clicked
+    function displayFavoriteWebsite() {
+      const favoriteWebsite = favoriteSelect.value; // Get the selected favorite website value
+      iframe.src = websites[favoriteWebsite]; // Update the iframe source to the selected favorite website
+    }
+  </script>
+
+
+</body>
+</html>

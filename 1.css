@@ -1,0 +1,133 @@
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 750;
+}
+/*container of content*/
+
+.left-sidebar {
+  flex: 1;
+  display: flex;
+  /*make the place plexible for the content to grow or shrinl*/
+  flex-direction: column;
+  /*arranges the flex items vertically*/
+  align-items: center;
+  justify-content: center;
+  background-color: #ffebcd; 
+  padding: 0px;
+  max-width: 190px;
+
+}
+
+
+.main-content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff5e1; 
+  max-width: 1000px;
+}
+
+.right-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffebcd; 
+  padding: 10px;
+  max-width: 230px;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  color: #333;
+}
+/*universal style of the webpage*/
+h1 {
+    color: #ffab91;
+    transition: transform 0.3s, opacity 0.3s, color 0.5s;
+}
+
+#contentDescription {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color:#fff8ed ;
+  font-size: 14px;
+
+
+}
+
+
+h5 {
+    color: #ffab91;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+
+}
+
+select:hover {
+    border-color: #ffab91;
+    background-color: #ffe4cc;
+}
+/*change the color of select button when hover over it*/
+
+iframe {
+    width: 95%;
+    height: 750px;
+    border: 2px solid #ffab91;
+    border-radius: 10px;
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.fade {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+
+.img h1{
+  
+  background: url(water.jpg);
+  /*sets the background of the element to an image*/
+  margin: 10;
+    display: inline-flex;
+    font-size: 70px;
+    background-position: 0 0;
+    /*set the initial position of background picture at the left top corner*/
+    -webkit-text-fill-color: #5b728a54;
+    -webkit-background-clip: text;
+    /*specify that the background should only be visible
+     through the shape of texts*/
+    
+    animation: animate 30s linear infinite;
+}
+
+@keyframes animate {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+/*moving the picture position of h1 text 
+}
